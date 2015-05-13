@@ -1,0 +1,25 @@
+{
+  "name": "reactjs-starter",
+  "version": "0.1.0",
+  "authors": [
+    "Tiago Celestino <tcelestino@gmail.com>"
+  ],
+  "description": "my default setup for reactjs projects",
+  "keywords": [
+    "reactjs",
+    "react",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/tcelestino/reactjs-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.3"
+  }
+}

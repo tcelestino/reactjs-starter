@@ -1,0 +1,28 @@
+{
+  "name": "reactjs-starter",
+  "version": "0.1.0",
+  "description": "my default setup for reactjs projects",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "github.com/tcelestino/reactjs-boilerplate"
+  },
+  "keywords": [
+    "reactjs",
+    "react",
+    "boilerplate"
+  ],
+  "author": "Tiago Celestino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcelestino/reactjs-boilerplate/issues"
+  },
+  "homepage": "https://github.com/tcelestino/reactjs-boilerplate",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-processhtml": "^1.1.0",
+    "gulp-react": "^3.0.1"
+  }
+}
