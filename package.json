@@ -2,7 +2,9 @@
   "name": "reactjs-starter",
   "version": "0.1.0",
   "description": "my default setup for reactjs projects",
-  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "repository": {
     "type": "git",
     "url": "github.com/tcelestino/reactjs-boilerplate"
@@ -23,6 +25,15 @@
     "gulp-load-plugins": "^0.10.0",
     "gulp-plumber": "^1.0.0",
     "gulp-processhtml": "^1.1.0",
-    "gulp-react": "^3.0.1"
+    "gulp-react": "^3.0.1",
+    "gulp-concat": "~2.5.2",
+    "gulp-uglify": "~1.2.0",
+    "gulp-jshint": "~1.10.0",
+    "gulp-livereload": "~3.8.0",
+    "gulp-order": "~1.1.1"
+  },
+  "dependencies": {
+    "connect": "~3.3.5",
+    "serve-static": "~1.9.2"
   }
 }
