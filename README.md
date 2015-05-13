@@ -2,19 +2,28 @@
 
 My setup for start project with React.js
 
-## Dependency
+## Dependencies
+  * connect
+  * serve-static
 
-  - gulp
-  - gulp-react
-  - gulp-load-plugins
-  - gulp-processhtml
+## Dev dependencies
+  * gulp
+  * gulp-react
+  * gulp-load-plugins
+  * gulp-processhtml
+  * gulp-jshint
+  * gulp-order
+  * gulp-livereload
+  * gulp-uglify
+  * gulp-concat
 
 ## Install
+
+gulp
 
 ```bash
 npm install gulp -g
 ```
-
 node modules
 
 ```bash
@@ -26,13 +35,23 @@ bower components
 bower install
 ```
 
-## Usage
+## Starter
+
+```bash
+  node start
+```
+
+## Usage gulp tasks
 
 ### Dev
+
+This task watch configure
 
 ```bash
 gulp
 ```
+
+
 ### Build
 
 ```bash
