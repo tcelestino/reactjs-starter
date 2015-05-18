@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "my default setup for reactjs projects",
   "scripts": {
-    "start": "node app.js"
+    "start": "gulp watch-dev"
   },
   "repository": {
     "type": "git",
@@ -29,15 +29,14 @@
     "gulp-concat": "~2.5.2",
     "gulp-uglify": "~1.2.0",
     "gulp-jshint": "~1.10.0",
-    "gulp-livereload": "~3.8.0",
     "gulp-order": "~1.1.1",
     "gulp-sass": "~2.0.1",
     "node-bourbon": "~4.2.2",
     "node-neat": "~1.7.1-beta1",
-    "gulp-concat-css": "~2.2.0"
+    "gulp-concat-css": "~2.2.0",
+    "gulp-cssmin": "~0.1.7",
+    "gulp-clean": "~0.3.1",
+    "gulp-connect": "~2.2.0"
   },
-  "dependencies": {
-    "connect": "~3.3.5",
-    "serve-static": "~1.9.2"
-  }
+  "dependencies": {}
 }
