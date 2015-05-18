@@ -1,16 +1,23 @@
 var gulp      = require('gulp');
 var plugins   = require('gulp-load-plugins')();
 
+var css = {
+  concat: require.('gulp-concat-css')
+};
+
 var SOURCE = {
   htmlPath: '*.html',
   vendorPath: 'src/js/vendor/**/*.js',
   jsPath: 'src/js/**/*.js',
-  jsxPath: 'src/jsx/*'
+  jsxPath: 'src/jsx/*',
+  scssPath: 'src/scss/**/*.scss',
+  cssPath: 'src/css/**/*.css'
 };
 
 var BUILD = {
   htmlPath: '.',
   jsPath: 'dist/js',
+  cssPath: 'dist/css'
 };
 
 /* DEV TASKS */
@@ -24,9 +31,26 @@ gulp.task('js-dev', function () {
     .pipe(gulp.dest('src/js'));
 });
 
+gulp.task('css-dev', function () {
+  'use strict';
+  var config = {
+    includePaths: [
+      require('node-bourbon').includePaths,
+      require('node-neat').includePaths
+    ]
+  };
+
+  return gulp.src(SOURCE.scssPath)
+    .pipe(plugins.plumber())
+    .pipe(plugins.sass(config))
+    .pipe(css.concat('app.css'))
+    .pipe(gulp.dest('src/css'))
+});
+
 gulp.task('dev', function () {
   'use strict';
   gulp.start('js-dev');
+  gulp.start('css-dev');
 });
 
 gulp.task('watch-dev', function () {
@@ -37,6 +61,7 @@ gulp.task('watch-dev', function () {
   server.listen();
 
   gulp.watch([SOURCE.jsxPath], ['js-dev']);
+  gulp.watch([SOURCE.scssPath], ['css-dev']);
 
 });
 
@@ -58,7 +83,7 @@ gulp.task('build-js', function () {
       'src/js/vendor/*',
       'src/js/*'
     ]))
-    .pipe(plugins.concat('App.js'))
+    .pipe(plugins.concat('main.js'))
     .pipe(plugins.uglify({
       wrap: true,
       mangle: {
@@ -66,6 +91,14 @@ gulp.task('build-js', function () {
       }
     }))
     .pipe(gulp.dest(BUILD.js));
+});
+
+gulp.task('build-css', function () {
+  'use strict';
+  return gulp.src(SOURCE.cssPath)
+    .pipe(plugins.sass())
+    .pipe(css.concat('main.css'))
+    .pipe(gulp.dest(BUILD.cssPath))
 });
 
 gulp.task('build', function () {

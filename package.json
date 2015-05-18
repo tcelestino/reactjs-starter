@@ -30,7 +30,11 @@
     "gulp-uglify": "~1.2.0",
     "gulp-jshint": "~1.10.0",
     "gulp-livereload": "~3.8.0",
-    "gulp-order": "~1.1.1"
+    "gulp-order": "~1.1.1",
+    "gulp-sass": "~2.0.1",
+    "node-bourbon": "~4.2.2",
+    "node-neat": "~1.7.1-beta1",
+    "gulp-concat-css": "~2.2.0"
   },
   "dependencies": {
     "connect": "~3.3.5",
