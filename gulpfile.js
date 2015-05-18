@@ -41,6 +41,13 @@ gulp.task('connect', function () {
 });
 
 /* DEV TASKS */
+
+gulp.task('html-dev', function () {
+  'use strict';
+  return gulp.src(SOURCE.htmlPath)
+    .pipe(connect.reload());
+});
+
 gulp.task('js-dev', function () {
   'use strict';
   return gulp.src('src/jsx/*.jsx')
@@ -48,7 +55,8 @@ gulp.task('js-dev', function () {
     .pipe(plugins.react())
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'))
-    .pipe(gulp.dest('src/js'));
+    .pipe(gulp.dest('src/js'))
+    .pipe(connect.reload());
 });
 
 gulp.task('css-dev', function () {
@@ -65,12 +73,13 @@ gulp.task('css-dev', function () {
     .pipe(plugins.sass(config))
     .pipe(css.concat('app.css'))
     .pipe(gulp.dest('src/css'))
-    .pipe(connect.reload())
+    .pipe(connect.reload());
 });
 
 gulp.task('dev', function () {
   'use strict';
   gulp.start('connect');
+  gulp.start('html-dev');
   gulp.start('js-dev');
   gulp.start('css-dev');
 });
@@ -80,6 +89,7 @@ gulp.task('watch-dev', function () {
 
   gulp.start('dev');
 
+  gulp.watch([SOURCE.htmlPath], ['html-dev']);
   gulp.watch([SOURCE.jsxPath], ['js-dev']);
   gulp.watch([SOURCE.scssPath], ['css-dev']);
 
@@ -96,7 +106,7 @@ gulp.task('build-html', function () {
 gulp.task('build-js', function () {
   'use strict';
   return gulp.src([
-      SOURCE.vendorPath,
+      'src/js/vendor/react/react-with-addons.js',
       SOURCE.jsPath
     ])
     .pipe(plugins.order([
@@ -110,7 +120,7 @@ gulp.task('build-js', function () {
         except: ['React', '$', '_', 'jQuery']
       }
     }))
-    .pipe(gulp.dest(BUILD.js));
+    .pipe(gulp.dest(BUILD.jsPath));
 });
 
 gulp.task('build-css', function () {
