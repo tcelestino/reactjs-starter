@@ -1,8 +1,10 @@
 var gulp      = require('gulp');
 var plugins   = require('gulp-load-plugins')();
+var connect   = require('gulp-connect');
 
 var css = {
-  concat: require.('gulp-concat-css')
+  concat: require('gulp-concat-css'),
+  min: require('gulp-cssmin')
 };
 
 var SOURCE = {
@@ -10,15 +12,33 @@ var SOURCE = {
   vendorPath: 'src/js/vendor/**/*.js',
   jsPath: 'src/js/**/*.js',
   jsxPath: 'src/jsx/*',
-  scssPath: 'src/scss/**/*.scss',
+  scssPath: 'src/sass/**/*.scss',
   cssPath: 'src/css/**/*.css'
 };
 
 var BUILD = {
-  htmlPath: '.',
+  htmlPath: 'dist/',
   jsPath: 'dist/js',
   cssPath: 'dist/css'
 };
+
+gulp.task('clean', function () {
+  return gulp.src(['dist/*'], {
+      read: false
+    })
+    .pipe(plugins.clean());
+});
+
+gulp.task('connect', function () {
+  'use strict';
+
+  var config = {
+    port: 3000,
+    livereload: true
+  };
+
+  connect.server(config);
+});
 
 /* DEV TASKS */
 gulp.task('js-dev', function () {
@@ -45,20 +65,20 @@ gulp.task('css-dev', function () {
     .pipe(plugins.sass(config))
     .pipe(css.concat('app.css'))
     .pipe(gulp.dest('src/css'))
+    .pipe(connect.reload())
 });
 
 gulp.task('dev', function () {
   'use strict';
+  gulp.start('connect');
   gulp.start('js-dev');
   gulp.start('css-dev');
 });
 
 gulp.task('watch-dev', function () {
   'use strict';
-  var server = require('gulp-livereload');
 
   gulp.start('dev');
-  server.listen();
 
   gulp.watch([SOURCE.jsxPath], ['js-dev']);
   gulp.watch([SOURCE.scssPath], ['css-dev']);
@@ -96,14 +116,15 @@ gulp.task('build-js', function () {
 gulp.task('build-css', function () {
   'use strict';
   return gulp.src(SOURCE.cssPath)
-    .pipe(plugins.sass())
     .pipe(css.concat('main.css'))
+    .pipe(css.min('main.css'))
     .pipe(gulp.dest(BUILD.cssPath))
 });
 
 gulp.task('build', function () {
+  gulp.start('clean');
   gulp.start('build-js');
   gulp.start('build-html');
 });
 
-gulp.task('default', ['watch-dev']);
+gulp.task('default', ['clean', 'watch-dev']);
