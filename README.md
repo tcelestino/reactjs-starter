@@ -4,9 +4,19 @@ My setup for start project with React.js
 
 ## Install
 
+
+```bash
+git clone git@github.com:tcelestino/reactjs-starter.git folder-project
+```
+
+```bash
+cd folder-project
+```
+
 ```bash
 npm install && bower install
 ```
+_optional: sudo_
 
 ## Usage
 
@@ -35,6 +45,7 @@ gulp build
   5. Submit a pull request :D
 
 ## History
+  - 05/19 - add lodash libray
 
 ## Credits
 
