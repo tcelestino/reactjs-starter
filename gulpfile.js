@@ -8,7 +8,8 @@ var css = {
 };
 
 var SOURCE = {
-  htmlPath: '*.html',
+  htmlPath: 'src/*.html',
+  imgPat: 'src/images/',
   vendorPath: 'src/js/vendor/**/*.js',
   jsPath: 'src/js/**/*.js',
   jsxPath: 'src/jsx/*',
@@ -17,13 +18,14 @@ var SOURCE = {
 };
 
 var BUILD = {
-  htmlPath: 'dist/',
-  jsPath: 'dist/js',
-  cssPath: 'dist/css'
+  htmlPath: 'public/',
+  imgPath: 'public/assets/images',
+  jsPath: 'public/assets/js',
+  cssPath: 'public/assets/css'
 };
 
 gulp.task('clean', function () {
-  return gulp.src(['dist/*'], {
+  return gulp.src(['public/*'], {
       read: false
     })
     .pipe(plugins.clean());
@@ -33,6 +35,7 @@ gulp.task('connect', function () {
   'use strict';
 
   var config = {
+    root: 'src',
     port: 3000,
     livereload: true
   };
@@ -113,7 +116,7 @@ gulp.task('build-js', function () {
       'src/js/vendor/*',
       'src/js/*'
     ]))
-    .pipe(plugins.concat('main.js'))
+    .pipe(plugins.concat('app.js'))
     .pipe(plugins.uglify({
       wrap: true,
       mangle: {
@@ -126,14 +129,15 @@ gulp.task('build-js', function () {
 gulp.task('build-css', function () {
   'use strict';
   return gulp.src(SOURCE.cssPath)
-    .pipe(css.concat('main.css'))
-    .pipe(css.min('main.css'))
+    .pipe(css.concat('app.css'))
+    .pipe(css.min())
     .pipe(gulp.dest(BUILD.cssPath))
 });
 
 gulp.task('build', function () {
   gulp.start('clean');
   gulp.start('build-js');
+  gulp.start('build-css');
   gulp.start('build-html');
 });
 
