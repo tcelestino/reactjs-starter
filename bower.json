@@ -21,5 +21,8 @@
   ],
   "dependencies": {
     "react": "~0.13.3"
+  },
+  "devDependencies": {
+    "lodash": "~3.8.0"
   }
 }

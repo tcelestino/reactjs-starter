@@ -16,7 +16,8 @@ var MyApp = {};
     var defaults = {
       targetId: '.main'
     };
-    var options = Object.assign(defaults, opt);
+
+    var options = _.assign(defaults, opt);
     var container = document.querySelector(options.targetId);
 
     React.render(<App options={options} />, container);
