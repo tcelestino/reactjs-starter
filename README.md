@@ -1,59 +1,45 @@
-# React.js Stater
+# React.js Starter
 
 My setup for start project with React.js
 
-## Dependencies
-  * connect
-  * serve-static
-
-## Dev dependencies
-  * gulp
-  * gulp-react
-  * gulp-load-plugins
-  * gulp-processhtml
-  * gulp-jshint
-  * gulp-order
-  * gulp-livereload
-  * gulp-uglify
-  * gulp-concat
-
 ## Install
 
-gulp
-
 ```bash
-npm install gulp -g
-```
-node modules
-
-```bash
-npm install
-```
-bower components
-
-```bash
-bower install
+npm install && bower install
 ```
 
-## Starter
-
-```bash
-  node start
-```
-
-## Usage gulp tasks
+## How to usage
 
 ### Dev
-
-This task watch configure
-
 ```bash
 gulp
 ```
 
+Or
+
+```bash
+gulp watch-dev
+```
 
 ### Build
-
 ```bash
 gulp build
 ```
+
+## Contributing
+
+  1. Fork it!
+  2. Create your feature branch: `git checkout -b my-new-feature`
+  3. Commit your changes: `git commit -am 'Add some feature'`
+  4. Push to the branch: `git push origin my-new-feature`
+  5. Submit a pull request :D
+
+## History
+
+## Credits
+
+Develop by [Tiago Celestino](http://github.com/tcelestino)
+
+## License
+
+MIT License
