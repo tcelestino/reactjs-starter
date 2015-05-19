@@ -1,6 +1,6 @@
 # React.js Starter
 
-My setup for start project with React.js
+Setup for start project with React.js
 
 ## Install
 
@@ -22,7 +22,7 @@ _optional: sudo_
 
 ### Dev
 ```bash
-gulp
+npm start
 ```
 
 Or

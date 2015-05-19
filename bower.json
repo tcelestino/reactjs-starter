@@ -4,14 +4,14 @@
   "authors": [
     "Tiago Celestino <tcelestino@gmail.com>"
   ],
-  "description": "my default setup for reactjs projects",
+  "description": "setup for start project with React.js",
   "keywords": [
     "reactjs",
     "react",
     "boilerplate"
   ],
   "license": "MIT",
-  "homepage": "http://github.com/tcelestino/reactjs-boilerplate",
+  "homepage": "http://github.com/tcelestino/reactjs-starter",
   "ignore": [
     "**/.*",
     "node_modules",
