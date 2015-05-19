@@ -2,8 +2,6 @@ var MyApp = {};
 
 (function () {
   'use strict';
-  var OPTIONS;
-
   var App = React.createClass({
     render: function () {
       return (
@@ -14,10 +12,13 @@ var MyApp = {};
     }
   });
 
-  function app (options) {
-    OPTIONS = options;
+  function app (opt) {
+    var defaults = {
+      targetId: '.main'
+    };
+    var options = Object.assign(defaults, opt);
+    var container = document.querySelector(options.targetId);
 
-    var container = document.querySelector('.main');
     React.render(<App options={options} />, container);
   }
 
