@@ -8,7 +8,7 @@ My setup for start project with React.js
 npm install && bower install
 ```
 
-## How to usage
+## Usage
 
 ### Dev
 ```bash
