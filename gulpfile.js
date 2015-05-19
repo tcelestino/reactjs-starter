@@ -25,7 +25,7 @@ var BUILD = {
 };
 
 gulp.task('clean', function () {
-  return gulp.src(['public/*'], {
+  return gulp.src(['public/*', 'src/css/*', 'src/js/*.js'], {
       read: false
     })
     .pipe(plugins.clean());
@@ -64,11 +64,9 @@ gulp.task('js-dev', function () {
 
 gulp.task('css-dev', function () {
   'use strict';
+  var neat = require('node-neat').includePaths;
   var config = {
-    includePaths: [
-      require('node-bourbon').includePaths,
-      require('node-neat').includePaths
-    ]
+    includePaths: neat
   };
 
   return gulp.src(SOURCE.scssPath)
