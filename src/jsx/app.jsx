@@ -4,23 +4,23 @@ var MyApp = {};
   'use strict';
   var OPTIONS;
 
-  var Component = React.createClass({
+  var App = React.createClass({
     render: function () {
       return (
-        <div className="component">
+        <header className="head">
           <h1>React.js Starter</h1>
-        </div>
+        </header>
       );
     }
   });
 
-  function App (options) {
+  function app (options) {
     OPTIONS = options;
 
     var container = document.querySelector('.main');
-    React.render(<Component options={options} />, container);
+    React.render(<App options={options} />, container);
   }
 
-  MyApp.init = App;
+  MyApp.init = app;
 
 }());

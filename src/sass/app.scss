@@ -1,5 +1,10 @@
 @import "bourbon";
+@import "neat";
 
 body {
   width: 100%;
+}
+
+.main {
+  //@include outer-container;
 }
